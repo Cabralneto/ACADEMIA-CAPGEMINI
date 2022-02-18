@@ -1,23 +1,24 @@
 // questão 01
 
 public class Main {
-	public static void escada(int n) {
-		int i, j, aux = n;
-		for (i = 0; i < n; i++) {
+
+	public static void main(String[] args) {
+		int n = 6;
+		int aux = n;
+		System.out.println("Exercicio 1:");
+
+		for (int i = 0; i < n; i++) {
 			while (aux > 0) {
 				System.out.print(" ");
 				aux--;
 			}
 			aux = (n - 1) - i;
 
-			for (j = aux; j < n; j++) {
+			for (int j = aux; j < n; j++) {
 				System.out.print("*");
 			}
 			System.out.println("");
 		}
+
 	}
-	
-	public static void main(String[] args) {
-	System.out.println("Exercicio 1:");
-	escada(6);
 }
