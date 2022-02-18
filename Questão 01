@@ -16,3 +16,8 @@ public class Main {
 			System.out.println("");
 		}
 	}
+	
+	public static void main(String[] args) {
+	System.out.println("Exercicio 1:");
+	escada(6);
+}
