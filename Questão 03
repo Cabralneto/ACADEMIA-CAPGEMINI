@@ -1,0 +1,70 @@
+// questão 03
+
+public class Main {
+	public static boolean verificaAnagrama(String s1, String s2) {
+		char[] cs1 = s1.toCharArray();
+		char[] cs2 = s2.toCharArray();
+		int pos2, pos1 = 0;
+		boolean encontrado, ok = true;
+
+		while (pos1 < s1.length() && ok) {
+			pos2 = 0;
+			encontrado = false;
+			while (pos2 < cs2.length && !encontrado) {
+				if (cs1[pos1] == cs2[pos2]) {
+					encontrado = true;
+				} else {
+					pos2++;
+				}
+			}
+			if (encontrado)
+				cs2[pos2] = Character.MIN_VALUE;
+			else
+				ok = false;
+			pos1++;
+		}
+
+		return ok;
+	}
+
+	public static int verificaSubs(String s1, String og) {
+		char[] strc = og.toCharArray();
+		String s2 = "";
+		int n = strc.length, len, i, j, k, cont = 0;
+		for (len = 1; len <= n; len++) {
+			for (i = 0; i <= n - len; i++) {
+				j = i + len - 1;
+				for (k = i; k <= j; k++) {
+					s2 = s2 + strc[k];
+				}
+				if (s1.length() == s2.length()) {
+					if (verificaAnagrama(s1, s2))
+						cont++;
+				}
+				s2 = "";
+			}
+		}
+		return cont;
+	}
+
+	public static int anagrama(String str) {
+		char[] strc = str.toCharArray();
+		String s1 = "";
+		int n = strc.length, len, i, j, k, cont = 0;
+		for (len = 1; len <= n; len++) {
+			for (i = 0; i <= n - len; i++) {
+				j = i + len - 1;
+				for (k = i; k <= j; k++) {
+					s1 = s1 + strc[k];
+				}
+				cont = cont + verificaSubs(s1, str);
+				s1 = "";
+			}
+		}
+		return cont;
+	}
+  
+  public static void main(String[] args) {
+  System.out.println("\nExercicio 3:");
+		System.out.println(anagrama("ovo"));
+  }
