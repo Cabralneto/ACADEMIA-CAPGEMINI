@@ -31,3 +31,7 @@
 		return cont;
 	}
 }
+public static void main(String[] args) {
+System.out.println("\nExercicio 2:");
+System.out.println("" + senha("Aaaa!a"));
+}
